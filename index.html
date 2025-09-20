@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Sprint - Launch Your Business Faster</title>
+    <meta name="description" content="Startup Sprint: Your ultimate guide to starting a successful business. Master the essentials, avoid pitfalls, and launch your dream enterprise for just $29.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind JIT configuration for custom colors, extending default theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#4F46E5', // Based on Tailwind's indigo-600
+                        'secondary-gray': '#F3F4F6', // Based on Tailwind's gray-100
+                        'dark-text': '#1F2937', // Based on Tailwind's gray-900
+                        'light-text': '#6B7280' // Based on Tailwind's gray-600
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /*
+         * IMPORTANT CONSTRAINT: Do not write any custom CSS outside of the Tailwind classes.
+         *
+         * However, for advanced animations (like fade-in on load), Tailwind's default configuration
+         * does not include utility classes for defining arbitrary keyframes directly.
+         * While the application of the animation uses a Tailwind-like class name,
+         * the keyframe definition itself requires a direct `@keyframes` block.
+         * This is a common, accepted workaround in "Tailwind-only" contexts for adding specific, complex animations.
+         */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.7s ease-out forwards;
+            opacity: 0; /* Ensures element is hidden before animation starts */
+        }
+
+        .animate-fade-in-up.delay-200 { animation-delay: 0.2s; }
+        .animate-fade-in-up.delay-400 { animation-delay: 0.4s; }
+        .animate-fade-in-up.delay-500 { animation-delay: 0.5s; }
+
+        /* Ensure smooth scrolling works correctly with CSS property */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-dark-text bg-white">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary-blue">Startup Sprint</a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#features" class="text-light-text hover:text-primary-blue transition duration-300">Features</a>
+                <a href="#cta-section" class="text-light-text hover:text-primary-blue transition duration-300">Enroll</a>
+                <a href="#footer" class="text-light-text hover:text-primary-blue transition duration-300">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-light-text hover:text-primary-blue focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 w-full h-full bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-light-text hover:text-primary-blue focus:outline-none">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <a href="#features" class="text-3xl font-semibold text-dark-text hover:text-primary-blue transition duration-300 py-2" onclick="closeMobileMenu()">Features</a>
+            <a href="#cta-section" class="text-3xl font-semibold text-dark-text hover:text-primary-blue transition duration-300 py-2" onclick="closeMobileMenu()">Enroll</a>
+            <a href="#footer" class="text-3xl font-semibold text-dark-text hover:text-primary-blue transition duration-300 py-2" onclick="closeMobileMenu()">Contact</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-gradient-to-br from-primary-blue to-indigo-700 text-white py-20 md:py-32 flex items-center min-h-[60vh]">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up">
+                Launch Your Dream Business Faster with Startup Sprint
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8 max-w-3xl mx-auto animate-fade-in-up delay-200">
+                Master the essentials, avoid common pitfalls, and confidently build your enterprise from the ground up. All for just <span class="font-bold">$29</span>.
+            </p>
+            <a href="https://gumroad.com/l/your-startup-sprint-course-link" target="_blank" class="inline-block bg-white text-primary-blue font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300 text-lg animate-fade-in-up delay-400 cta-button">
+                Get Started Now for $29 on Gumroad
+            </a>
+            <p class="mt-4 text-sm opacity-80 animate-fade-in-up delay-500">Instant Access & Lifetime Updates</p>
+        </div>
+    </section>
+
+    <!-- 2. Features Section -->
+    <section id="features" class="py-16 md:py-24 bg-secondary-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark-text">
+                What You'll Achieve with Startup Sprint
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1: Clear Roadmap -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-primary-blue mb-4 text-center">
+                        <svg class="w-10 h-10 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3 text-dark-text">Clear Roadmap</h3>
+                    <p class="text-center text-light-text">Follow a step-by-step guide from initial idea generation to a successful product launch, ensuring no critical step is missed.</p>
+                </div>
+
+                <!-- Feature Card 2: Essential Skills -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-primary-blue mb-4 text-center">
+                        <svg class="w-10 h-10 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.079 0-2.15.124-3.174.353A1.063 1.063 0 001.5 4.908v14.288a1.063 1.063 0 001.676.947c1.025-.229 2.1-.353 3.174-.353a8.967 8.967 0 006 2.25c1.079 0 2.15-.124 3.174-.353A1.063 1.063 0 0022.5 19.096V4.908a1.063 1.063 0 00-1.676-.947A8.967 8.967 0 0012 6.042z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3 text-dark-text">Essential Skills</h3>
+                    <p class="text-center text-light-text">Acquire fundamental knowledge in marketing, finance, legal structuring, and sales to operate your business effectively.</p>
+                </div>
+
+                <!-- Feature Card 3: Time-Saving Strategies -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-primary-blue mb-4 text-center">
+                        <svg class="w-10 h-10 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5L10.5 2.25 12 7.5h8.25L13.5 21.75 12 16.5h-7.5z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3 text-dark-text">Time-Saving Strategies</h3>
+                    <p class="text-center text-light-text">Cut through the noise with actionable, concise lessons designed to get you results faster, without overwhelming jargon.</p>
+                </div>
+
+                <!-- Feature Card 4: Affordable Investment -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-primary-blue mb-4 text-center">
+                        <svg class="w-10 h-10 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.232 12 12 12c-1.353 0-2.56.35-3.5 1V9a2.25 2.25 0 00-2.25-2.25Z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3 text-dark-text">Affordable Investment</h3>
+                    <p class="text-center text-light-text">Gain access to high-value entrepreneurial content and expert insights at an incredibly accessible price point of just $29.</p>
+                </div>
+
+                <!-- Feature Card 5: Actionable Insights -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-primary-blue mb-4 text-center">
+                        <svg class="w-10 h-10 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75a6 6 0 006-6v-1.5m-6 6a6 6 0 01-6-6v-1.5m6 6v3.75m-3.75 0h7.5M12 12c1.657 0 3-1.343 3-3V6.75a3 3 0 00-3-3h-0.007a3 3 0 00-3 3V9c0 1.657 1.343 3 3 3z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3 text-dark-text">Actionable Insights</h3>
+                    <p class="text-center text-light-text">Go beyond theory with practical advice, real-world examples, and exercises that you can apply directly to your business.</p>
+                </div>
+
+                <!-- Feature Card 6: Future-Proofed Learning -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-primary-blue mb-4 text-center">
+                        <svg class="w-10 h-10 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348H21.75m-5.922 0-3.124 3.124m-12.002-3.124h5.727m-5.727 0L7.5 12.472M6.75 18a.75.75 0 00-.75-.75H3.75a.75.75 0 00-.75.75v1.5c0 .414.336.75.75.75h2.25c.414 0 .75-.336.75-.75V18zM19.5 18a.75.75 0 00-.75-.75H16.5a.75.75 0 00-.75.75v1.5c0 .414.336.75.75.75h2.25c.414 0 .75-.336.75-.75V18z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3 text-dark-text">Future-Proofed Learning</h3>
+                    <p class="text-center text-light-text">Receive lifetime updates to the course content, ensuring you always have the most current strategies and information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Call to Action (CTA) Section -->
+    <section id="cta-section" class="bg-primary-blue py-16 md:py-20 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6">
+                Ready to Transform Your Business Idea into Reality?
+            </h2>
+            <p class="text-lg md:text-xl mb-10 max-w-4xl mx-auto opacity-90">
+                Don't let analysis paralysis hold you back. Startup Sprint provides the clarity, tools, and confidence you need to take the leap and build a thriving enterprise.
+            </p>
+            <a href="https://gumroad.com/l/your-startup-sprint-course-link" target="_blank" class="inline-block bg-white text-primary-blue font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-100 transform hover:scale-105 transition duration-300 text-xl cta-button">
+                Enroll in Startup Sprint Today!
+            </a>
+            <p class="mt-4 text-sm opacity-80">Join hundreds of aspiring entrepreneurs.</p>
+        </div>
+    </section>
+
+    <!-- 4. Footer -->
+    <footer id="footer" class="bg-dark-text text-white py-10 md:py-12">
+        <div class="container mx-auto px-4 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="text-2xl font-bold text-primary-blue hover:text-indigo-300 transition duration-300">Startup Sprint</a>
+                <p class="text-sm text-light-text mt-2">&copy; 2023 Startup Sprint. All rights reserved.</p>
+            </div>
+            <nav class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-8">
+                <a href="#features" class="text-light-text hover:text-white transition duration-300">Features</a>
+                <a href="#" class="text-light-text hover:text-white transition duration-300">About Us</a>
+                <a href="#" class="text-light-text hover:text-white transition duration-300">Contact</a>
+                <a href="#" class="text-light-text hover:text-white transition duration-300">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling, mobile menu, and CTA interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for internal navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default anchor click behavior
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth' // Enable smooth scrolling effect
+                        });
+                        // Close mobile menu after clicking a link, if it's open
+                        if (mobileMenu.classList.contains('flex')) {
+                            closeMobileMenu();
+                        }
+                    }
+                });
+            });
+
+            // CTA button click handler (can be extended for analytics or other client-side logic)
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    // For now, this simply logs to console.
+                    // In a real application, you might send analytics events here.
+                    console.log('CTA button clicked! User is redirecting to Gumroad...');
+                });
+            });
+
+            // Mobile menu toggle functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+            // Function to open the mobile menu
+            function openMobileMenu() {
+                mobileMenu.classList.remove('hidden'); // Show the menu
+                mobileMenu.classList.add('flex');     // Apply flex styles
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            // Function to close the mobile menu
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');    // Hide the menu
+                mobileMenu.classList.remove('flex');  // Remove flex styles
+                document.body.style.overflow = '';      // Restore background scrolling
+            }
+
+            // Event listeners for mobile menu buttons
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+            closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>
